@@ -2,11 +2,21 @@ import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import { Col, Row, Form, FormGroup, Label, Input } from 'reactstrap';
 import FormRadioQuestion from './FormRadioQuestion';
+import { fetchQuestions } from '../../data/utils/apiService';
 
 class InvestorForm extends Component {
   state = {
-    dropdownOpen: false
+    dropdownOpen: false,
+    behaviourQuestions: [],
+    investmentQuestions: []
   };
+
+  componentDidMount() {
+    this.setState({
+
+    })
+    // fetchQuestions();
+  }
 
   toggle = () => {
     this.setState({
@@ -24,7 +34,7 @@ class InvestorForm extends Component {
 
   render() {
     return (
-      <Form>
+      <div>
         <h1>PERFIL DO INVESTIDOR</h1>
         
         <FormRadioQuestion 
@@ -112,7 +122,7 @@ class InvestorForm extends Component {
         </div>
         <Button outline color="secondary" onClick={this.handleBack}>VOLTAR</Button>{' '}
         <Button color="warning" onClick={this.handleSubmit}>SALVAR</Button>{' '}
-      </Form>
+      </div>
     );
   }
 }
