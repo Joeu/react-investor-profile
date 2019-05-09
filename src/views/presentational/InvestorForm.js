@@ -32,18 +32,27 @@ class InvestorForm extends Component {
           option1={'PRESERVAR MEU DINIEIRO SEM CORRER RISCOS'}
           option2={'GANHAR MAIS DINHEIRO ASSUMINDO RISCOS MODERADOS'}
           option3={'GANHAR MAIS DINHEIRO ASSUMINDO RISCOS AGRESSIVOS'}
-        />
+          id1={'q1op1'}
+          id2={'q1op2'}
+          id3={'q1op3'}
+          />
         <FormRadioQuestion 
           question={'2 - Por quanto tempo você deseja manter os seus investimentos?'}
           option1={'ATÉ UM ANO'}
           option2={'DE 1 A 3 ANOS'}
           option3={'DE 1 A 3 ANOS'}
-        />
+          id1={'q2op1'}
+          id2={'q2op2'}
+          id3={'q2op3'}
+          />
         <FormRadioQuestion 
           question={'3 - Quantos % desses investimentos você pode precisar em um ano?'}
           option1={'ACIMA DE 75%'}
           option2={'DE 26% A 74%'}
           option3={'ATÉ 25%'}
+          id1={'q3op1'}
+          id2={'q3op2'}
+          id3={'q3op3'}
         />
         <div>
           <p>4 - Qual sua familiaridade com os tipos de investimentos abaixo?</p>
