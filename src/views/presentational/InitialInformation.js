@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import ConfirmationModal from './ConfirmationModal';
+import { INFO_RECEIVED_SCREEN } from '../../data/utils/constants';
+import { GoChecklist } from "react-icons/go";
 
 class InitialInformation extends Component {
   state = {
@@ -20,11 +22,13 @@ class InitialInformation extends Component {
   render() {
     return (
       <div>
-        <p>Em até 48h daremos um retorno sobre a abertura de sua conta.</p>
-        <p>Para receber nossas recomendações de investimentos e começar a investir, precisamos conhecer seu perfil de investidor.</p>
-        <p>Serão apenas 4 perguntas, que irão guiar todas as suas decisões de investimentos.</p>
-        <p></p>
-        <p>Gostaria de responder ao perfil do investidor?.</p>
+        <GoChecklist size={'5em'} />
+        <p>INFORMAÇÕES RECEBIDAS</p>
+        {
+          INFO_RECEIVED_SCREEN.split('\n').map((i, key) => {
+            return <p key={key}>{i}</p>
+          }) 
+        }
         <div>
           <Button onClick={this.displayConfirmation} outline color="secondary">NÃO</Button>
           <Button onClick={this.answerQuiz} outline color="secondary">SIM</Button>

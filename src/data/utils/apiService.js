@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3004';
+const BASE_URL = 'https://api.myjson.com/bins/xuy32';
 
 const headers = {
   'Accept': 'application/json',
@@ -7,7 +7,7 @@ const headers = {
 }
 
 export const fetchQuestions = () =>
-  fetch(`${BASE_URL}/questions`,
+  fetch(`${BASE_URL}`,
     {
       method: 'GET',
       headers: headers
@@ -15,7 +15,6 @@ export const fetchQuestions = () =>
   )
     .then(res => res.json())
     .then(resJson => {
-      console.log(resJson);
       return resJson;
     })
     .catch(error => {
