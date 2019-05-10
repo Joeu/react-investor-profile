@@ -10,7 +10,7 @@ class FormProvider extends Component{
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     fetchQuestions()
       .then(response => this.setState({
         questions: response.questions
@@ -21,7 +21,6 @@ class FormProvider extends Component{
   }
 
   render() {
-    console.log(this.state);
     return (
       <FormContext.Provider
         value={{

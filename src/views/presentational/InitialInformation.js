@@ -16,7 +16,7 @@ class InitialInformation extends Component {
   }
 
   answerQuiz = () => {
-    this.props.history.push('/investorForm');
+    this.props.history.push('/formInvestor');
   }
 
   render() {

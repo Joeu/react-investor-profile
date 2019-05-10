@@ -1,24 +1,27 @@
 import React from 'react';
-import { FormGroup, Row, Col, Label, Input } from 'reactstrap';
+import { FormGroup, Label, Input } from 'reactstrap';
 
 const FormSelectQuestion = (props) => {
+
   const { type, options } = props;
 
+  const handleChange = (event) => {
+    let target = event.target;
+    let answer = target.options[target.selectedIndex].value;
+    props.setAnswer({ type, answer });
+  }
+
   return (
-    <Row form>
-      <Col md={6}>
-        <FormGroup>
-          <Label>{type}</Label>
-          <Input type="select" name="select" id={type}>
-            {
-              options.map((opt, key) => 
-                <option key={key}>{opt}</option>
-              )
-            }
-          </Input>
-        </FormGroup>
-      </Col>
-    </Row>
+    <div>
+      <Label for={type}>{type}</Label>
+      <select type="select" name="select" id={type} onChange={handleChange}>
+        {
+          options.map((opt, key) =>
+            <option value={opt} key={key}>{opt}</option>
+          )
+        }
+      </select>
+    </div>
   )
 
 }
