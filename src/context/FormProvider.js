@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FormContext from './FormContext';
-import { fetchQuestions } from './data/utils/apiService';
+import { fetchQuestions } from '../data/utils/apiService';
 
 class FormProvider extends Component{
   state = {
