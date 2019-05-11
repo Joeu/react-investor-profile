@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from 'reactstrap';
 import IncompleteData from './IncompleteData';
 import Success from './Success';
+import { BACK_TO_START } from '../../data/utils/constants';
 
 const FinalScreen = (props) => {
   const handleSubmit = () => {
@@ -14,7 +15,7 @@ const FinalScreen = (props) => {
           ? <IncompleteData />
           : <Success data={props.location.state} />
       }
-      <Button outline color="secondary" onClick={handleSubmit}>INÍCIO</Button>
+      <Button outline color="secondary" onClick={handleSubmit}>{BACK_TO_START}</Button>
     </div>
   );
 }

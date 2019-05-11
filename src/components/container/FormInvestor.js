@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import FormContext from '../context/FormContext';
-import FormBehaviourQuestion from './FormBehaviourQuestion';
-import FormInvestmentQuestions from './FormInvestmentQuestions';
+import FormContext from '../../context/FormContext';
+import FormBehaviourQuestion from '../presentational/FormBehaviourQuestion';
+import FormInvestmentQuestions from '../presentational/FormInvestmentQuestions';
 import { Button } from 'reactstrap';
 import styled from 'styled-components';
+import { INVESTOR_PROFILE_HEADER, BUTTON_BACK, BUTTON_SAVE } from '../../data/utils/constants';
+
 
 // CSS-IN-JS
 const styles = {
@@ -30,7 +32,6 @@ class FormInvestor extends Component {
     dropdownOpen: false,
     behaviourAnswers: {},
     investmentKnowlegdeAnswers: {},
-    formIsValid: false
   };
 
   toggle = () => {
@@ -51,8 +52,7 @@ class FormInvestor extends Component {
     let { behaviourAnswers } = this.state;
     behaviourAnswers[id] = {'title': title, 'answer': value};
     this.setState({
-      behaviourAnswers,
-      formIsValid: this.validateForm()
+      behaviourAnswers
     });
   }
 
@@ -60,14 +60,8 @@ class FormInvestor extends Component {
     let { investmentKnowlegdeAnswers } = this.state;
     investmentKnowlegdeAnswers[type] = answer;
     this.setState({
-      investmentKnowlegdeAnswers,
-      formIsValid: this.validateForm()
+      investmentKnowlegdeAnswers
     });
-  }
-
-  validateForm = () => {
-    return Object.values(this.state.behaviourAnswers).length === 3 
-            &&  Object.entries(this.state.investmentKnowlegdeAnswers).length === 4;
   }
 
   render() {
@@ -76,7 +70,7 @@ class FormInvestor extends Component {
         {context => (
           context.questions.behaviour.length > 0 &&
           <div>
-            <h4>PERFIL DO INVESTIDOR</h4>
+            <h4>{INVESTOR_PROFILE_HEADER}</h4>
             {
               context.questions.behaviour.map(
                 (question) =>
@@ -102,13 +96,21 @@ class FormInvestor extends Component {
               }
             </div>
             <ButtonControlWrapper>
-              <Button outline color="secondary" style={styles.button} onClick={this.handleBack}>VOLTAR</Button>
+              <Button 
+                outline color="secondary" 
+                style={styles.button} 
+                onClick={this.handleBack}
+              >
+                {BUTTON_BACK}
+              </Button>
               <Button color="warning" style={{...styles.button, color: 'white'}} onClick={this.handleSubmit} 
                 disabled={
                   !(context.questions.behaviour.length === Object.values(this.state.behaviourAnswers).length
                   && context.questions.knowledge.investmentTypes.length === Object.entries(this.state.investmentKnowlegdeAnswers).length)
                 }
-              >SALVAR</Button>
+              >
+                {BUTTON_SAVE}
+              </Button>
             </ButtonControlWrapper>
           </div>
         )}

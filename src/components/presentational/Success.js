@@ -1,4 +1,5 @@
 import React from 'react';
+import { DATA_ENTERED_HEADER, INVESTMENT_PROFILE, BEHAVIOUR_PROFILE } from '../../data/utils/constants';
 
 const Success = (props) => {
   const { behaviourAnswers, investmentKnowlegdeAnswers } = props.data;
@@ -7,8 +8,8 @@ const Success = (props) => {
     <div>
       {
         <div>
-          <h1>CADASTRO CRIADO COM SUCESSO</h1>
-          <h3>PERFIL COMPORTAMENTAL</h3>
+          <h1>{DATA_ENTERED_HEADER}</h1>
+          <h3>{BEHAVIOUR_PROFILE}</h3>
           <hr></hr>
           {
             Object.values(behaviourAnswers)
@@ -17,7 +18,7 @@ const Success = (props) => {
                 <p key={key}>{sortedQA[0]} - <b>{sortedQA[1]}</b></p>
               )
           }
-          <h3>PERFIL DE INVESTIMENTO</h3>
+          <h3>{INVESTMENT_PROFILE}</h3>
           <hr></hr>
           {
             Object.entries(investmentKnowlegdeAnswers).map(answer =>

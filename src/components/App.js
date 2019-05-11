@@ -2,9 +2,9 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import FormProvider from '../context/FormProvider';
-import InitialInformation from './InitialInformation';
-import FormInvestor from './FormInvestor';
-import FinalScreen from './FinalScreen';
+import InitialInformation from './container/InitialInformation';
+import FormInvestor from './container/FormInvestor';
+import FinalScreen from './presentational/FinalScreen';
 
 function App() {
   return (

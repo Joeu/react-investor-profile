@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import ConfirmationModal from './ConfirmationModal';
-import { INFO_RECEIVED_SCREEN } from '../data/utils/constants';
+import { INFO_RECEIVED_SCREEN } from '../../data/utils/constants';
 import { GoChecklist } from "react-icons/go";
 import styled from 'styled-components';
+import { INFO_RECEIVED, BUTTON_NO, BUTTON_YES } from '../../data/utils/constants';
+
 
 // Usage of CSS-IN-JS
 const styles = {
@@ -41,17 +43,33 @@ class InitialInformation extends Component {
     return (
       <InfoWrapper>
         <GoChecklist size={'5em'} />
-        <p>INFORMAÇÕES RECEBIDAS</p>
+        <p>{INFO_RECEIVED}</p>
         {
           INFO_RECEIVED_SCREEN.split('\n').map((i, key) => {
             return <p key={key}>{i}</p>
           })
         }
         <div>
-          <Button onClick={this.displayConfirmation} outline color="secondary" style={styles.button}>NÃO</Button>
-          <Button onClick={this.formInvestorPage} outline color="secondary" style={styles.button}>SIM</Button>
+          <Button 
+            onClick={this.displayConfirmation} 
+            outline color="secondary" 
+            style={styles.button}
+          >
+            {BUTTON_NO}
+          </Button>
+          <Button 
+            onClick={this.formInvestorPage} 
+            outline color="secondary" 
+            style={styles.button}
+          >
+            {BUTTON_YES}
+          </Button>
         </div>
-        <ConfirmationModal formCompletePage={this.formCompletePage} toggleModal={this.displayConfirmation} display={this.state.isModalOpen} />
+        <ConfirmationModal 
+          formCompletePage={this.formCompletePage} 
+          toggleModal={this.displayConfirmation} 
+          display={this.state.isModalOpen} 
+        />
       </InfoWrapper>
     )
   }

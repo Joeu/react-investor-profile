@@ -1,6 +1,7 @@
 import React from 'react';
 import { Label } from 'reactstrap';
 import styled from 'styled-components';
+import { SELECT_AN_OPTION } from '../../data/utils/constants';
 
 const SelectWrapper = styled.div`
   flex: 1 0 50%;
@@ -22,7 +23,7 @@ const FormInvestmentQuestions = (props) => {
       </div>
       <div>
         <select type="select" name="select" defaultValue={'default'} id={type} onChange={handleChange}>
-          <option value='default' disabled>Selecione uma opção</option>
+          <option value='default' disabled>{SELECT_AN_OPTION}</option>
           {
             options.map((opt, key) =>
               <option value={opt} key={key}>{opt}</option>
